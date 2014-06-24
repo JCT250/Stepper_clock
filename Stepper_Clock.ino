@@ -1,3 +1,7 @@
+/* The following code has the clock moving the whole time 
+the only thing that changes is the speed of the pendulum.
+This is not the final code that got loaded onto the clock */
+
 
 int step = 0;
 int dir = 0;
@@ -23,7 +27,6 @@ void setup()
 	pinMode(resolution2, OUTPUT);
 	pinMode(resolution3, OUTPUT);
 	
-  /* add setup code here */
 	digitalWrite(resolution1, HIGH);
 	digitalWrite(resolution2, HIGH);
 	digitalWrite(resolution3, HIGH);
@@ -32,6 +35,7 @@ void setup()
 
 void loop()
 {
+	// speeding up. decreasing the amount of time between each step
 	for(current_delay = max_delay; current_delay < min_delay; current_delay--)
 	{
 		delay(current_delay);
@@ -41,7 +45,8 @@ void loop()
 	}
 
 	max_delay = random(max_limit1,max_limit2);
-
+	
+	// slowing down. increasing the amount of time between each step
 	for(current_delay = min_delay; current_delay > max_delay; current_delay++)
 	{
 		delay(current_delay);
@@ -51,7 +56,5 @@ void loop()
 	}
 
 	min_delay = random(min_limit1,min_limit2);
-
-  /* add main program code here */
 
 }
